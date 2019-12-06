@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from automates import LangtonAnt
+from automates.langton import LangtonAnt
 
 if __name__ == '__main__':
 
@@ -8,5 +8,5 @@ if __name__ == '__main__':
     langton.initialize()
 
     for i in range(1000):
-        langton.evolve()
-        langton.saveImg(filepath='langtong.%.03d.png' % i + 1)
+        langton.evolves()
+        langton.saveImg(filepath="output/langton.%.03d.png" % (langton.step + 1))

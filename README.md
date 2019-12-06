@@ -1,7 +1,15 @@
 
 # cellularAutomaton
+
 Python API to create and display cellular automaton
-Each cellular automaton derives from **Automate** class and has at least an **evolve()** method which describes how the system evolves in step N+1.
+
+## Dependencies
+
+- [PyPNG](https://github.com/drj11/pypng) : `py 3.X -m pip install PyPNG`
+
+## Description
+
+Each cellular automaton derives from **Automate** class and has at least an **evolves()** method which describes how the system evolves in step N+1.
 Example :
 
 ```python
@@ -18,3 +26,4 @@ if __name__ == '__main__':
         langton.evolve()
         langton.saveImg(filepath='langtong.%.03d.png' % langton.step + 1)
 ```
+
