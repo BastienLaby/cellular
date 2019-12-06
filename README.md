@@ -10,20 +10,51 @@ Python API to create and display cellular automaton
 ## Description
 
 Each cellular automaton derives from **Automate** class and has at least an **evolves()** method which describes how the system evolves in step N+1.
-Example :
+
+## Usage example :
 
 ```python
 # -*- coding: utf-8 -*-
 
-from automates import LangtonAnt
+from automates.langton import LangtonAnt
+from automates.conwayGameOfLife import ConwayGameOfLife
 
 if __name__ == '__main__':
 
-    langton = LangtonAnt(100, 100) # grid size
-    langton.initialize() # each subclass of Automate also override the initialize() method
+    ## Langton's app
 
-    for i in range(1000):
-        langton.evolve()
-        langton.saveImg(filepath='langtong.%.03d.png' % langton.step + 1)
+    automate = LangtonAnt(100, 100)
+    automate.initialize()
+
+    for _ in range(0, 20):
+        automate.saveImg(filepath="output/langton/langton.%.03d.png" % (automate.step))
+        automate.evolves()
+
+    ## Conway game of life
+
+    automate = ConwayGameOfLife(100, 100)
+    automate.initialize()
+
+    # create blinker
+    automate.grid[4][4] = 1
+    automate.grid[4][5] = 1
+    automate.grid[4][6] = 1
+
+    # create pentadecathlon
+    for i in range(8):
+        automate.grid[10 + i][10] = 1
+        automate.grid[10 + i][11] = 1
+        automate.grid[10 + i][12] = 1
+    automate.grid[11][11] = 0
+    automate.grid[16][11] = 0
+
+    for _ in range(30):
+        automate.saveImg(filepath="output/conway/conway.%.03d.png" % (automate.step))
+        automate.evolves()
 ```
 
+## Roadmap :
+
+[] Use of NumPY for best performances
+[] Custom cells states
+[] YAML configuration for automate creations
