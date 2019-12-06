@@ -95,9 +95,9 @@ class LangtonAnt(automate.Automate):
             row = []
             for i in range(self.width):
                 if self.ant.pos == (i, j):
-                    row += [255, 0, 0]
+                    row += [255, 0, 0, 255]
                 elif self.grid[i][j]:
-                    row += [255, 255, 255]
+                    row += [255, 255, 255, 255]
                 else:
-                    row += [0, 0, 0]
+                    row += [0, 0, 0, 255]
             self.imageData.append(row)

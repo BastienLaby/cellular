@@ -45,9 +45,9 @@ class Automate(object):
             row = []
             for i in range(self.width):
                 if self.grid[i][j]:
-                    row += [255, 255, 255]
+                    row += [255, 255, 255, 255]
                 else:
-                    row += [0, 0, 0]
+                    row += [0, 0, 0, 255]
             self.imageData.append(row)
 
     def saveImg(self, filepath=''):
@@ -55,6 +55,6 @@ class Automate(object):
         Save the image data to the given file.
         '''
         self.saveImgForData()
-        writer = png.Writer(self.width, self.height, greyscale=False)
+        writer = png.Writer(self.width, self.height, greyscale=False, alpha=True)
         with open(filepath, 'wb') as f:
             writer.write(f, self.imageData)
