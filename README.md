@@ -55,6 +55,8 @@ if __name__ == '__main__':
 
 ## Roadmap :
 
-[] Use of NumPY for best performances
-[] Custom cells states
-[] YAML configuration for automate creations
+[ ] Use of NumPY for best performances
+
+[ ] Custom cells states
+
+[ ] YAML configuration for automate creations
