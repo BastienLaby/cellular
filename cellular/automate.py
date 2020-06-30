@@ -8,7 +8,7 @@ class Automate(object):
     Each automate has :
     - a 2D grid
     - a "step" variable couting the number of evolutions
-    - a "imageData" array variable containing the image data which represents the automate state.
+    - a "img_data" array variable containing the image data which represents the automate state.
     """
 
     cell_data_type = int
@@ -37,11 +37,11 @@ class Automate(object):
         """
         raise NotImplementedError()
 
-    def saveImgForData(self):
+    def save_image_data(self):
         """
         Compute current grid data to create data image.
         """
-        self.imageData = []
+        self.img_data = []
         for j in range(self.height)[::-1]:
             row = []
             for i in range(self.width):
@@ -49,13 +49,13 @@ class Automate(object):
                     row += [255, 255, 255, 255]
                 else:
                     row += [0, 0, 0, 255]
-            self.imageData.append(row)
+            self.img_data.append(row)
 
-    def saveImg(self, filepath=""):
+    def save_img(self, filepath=""):
         """
         Save the image data to the given file.
         """
-        self.saveImgForData()
+        self.save_image_data()
         writer = png.Writer(self.width, self.height, greyscale=False, alpha=True)
         with open(filepath, "wb") as f:
-            writer.write(f, self.imageData)
+            writer.write(f, self.img_data)

@@ -1,16 +1,16 @@
 import math
 
 
-def rotate90Right(i, j):
-    dAngle = math.acos(i) if j > 0 else - math.acos(i)
-    dAngle -= math.pi / 2
-    return int(math.cos(dAngle)), int(math.sin(dAngle))
+def rotate_90_right(i, j):
+    delta_angle = math.acos(i) if j > 0 else - math.acos(i)
+    delta_angle -= math.pi / 2
+    return int(math.cos(delta_angle)), int(math.sin(delta_angle))
 
 
-def rotate90Left(i, j):
-    dAngle = math.acos(i) if j > 0 else - math.acos(i)
-    dAngle += math.pi / 2
-    return int(math.cos(dAngle)), int(math.sin(dAngle))
+def rotate_90_left(i, j):
+    delta_angle = math.acos(i) if j > 0 else - math.acos(i)
+    delta_angle += math.pi / 2
+    return int(math.cos(delta_angle)), int(math.sin(delta_angle))
 
 
 class Vector2D(object):

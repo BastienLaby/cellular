@@ -4,7 +4,8 @@ import copy
 
 from cellular.automate import Automate
 
-relativeNeighors = (
+
+_RELATIVE_NEIGHBORS = (
     (-1, -1),
     (-1, 0),
     (-1, 1),
@@ -20,9 +21,6 @@ class ConwayGameOfLife(Automate):
     '''
     Automate wich reproduces the Conway's Game of Life (https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
     '''
-    def __init__(self, width, height):
-        Automate.__init__(self, width=width, height=height)
-        self.ant = None
 
     def evolves(self):
         '''
@@ -32,14 +30,14 @@ class ConwayGameOfLife(Automate):
         * All other live cells die in the next generation.
         '''
 
-        currentGen = copy.deepcopy(self.grid)
+        current_gen = copy.deepcopy(self.grid)
         for i in range(self.width):
             for j in range(self.height):
-                livingCell = currentGen[i][j]
-                livingNeighbors = 0
-                for dI, dJ in relativeNeighors:
+                living_cell = current_gen[i][j]
+                living_neighbors = 0
+                for di, dj in _RELATIVE_NEIGHBORS:
                     try:
-                        livingNeighbors += 1 if currentGen[i + dI][j + dJ] else 0
+                        living_neighbors += 1 if current_gen[i + di][j + dj] else 0
                     except IndexError: # out of the grid
                         pass
 
@@ -47,11 +45,11 @@ class ConwayGameOfLife(Automate):
                 self.grid[i][j] = 0
 
                 # Rule 1 : Any dead cell with three live neighbors becomes a live cell.
-                if livingCell and livingNeighbors in (2, 3):
+                if living_cell and living_neighbors in (2, 3):
                     self.grid[i][j] = 1
 
                 # Rule 2 : Any dead cell with three live neighbors becomes a live cell.
-                if not livingCell and livingNeighbors == 3:
+                if not living_cell and living_neighbors == 3:
                     self.grid[i][j] = 1
 
         # increment the step
