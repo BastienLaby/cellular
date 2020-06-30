@@ -7,6 +7,9 @@ The `Automate` class :
 * Provides a `grid` variable to store the automate's data.
 * Provides an `evolves()` method to override in order to describe how the system evolves at step N+1.
 
+<img src="https://github.com/BastienLaby/cellular/blob/master/langton.gif" width="200">
+<img src="https://github.com/BastienLaby/cellular/blob/master/conway.gif" width="200">
+
 ## Example
 
 ```python
