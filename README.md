@@ -1,13 +1,13 @@
 
 # cellularAutomaton
 
-*cellular* is a Python API to create and display cellular automaton.
+**cellular** is a Python API to create and display cellular automatons.
 It provide a class `Automate` that you can derivate to create custom automatons.
 The `Automate` class :
-* Provide a `grid` variable to store the data of the automate.
-* Provide an `evolves()` method to override to describe how the system evolves in step N+1.
+* Provides a `grid` variable to store the automate's data.
+* Provides an `evolves()` method to override in order to describe how the system evolves at step N+1.
 
-## Examples:
+## Example
 
 ```python
 import copy
@@ -23,7 +23,7 @@ class Blinker(Automate):
 
     def evolves(self):
         """
-        Implement a blinker automate which
+        Implement a blinker automate which inverse th state of every cell at each evolution.
         """
         current_gen = copy.deepcopy(self.grid)
         for i in range(self.width):
@@ -57,13 +57,11 @@ for i in range(3):
 Done !
 
 
-## Advanced usage :
+## Advanced usage
 
 ```python
-# -*- coding: utf-8 -*-
-
 from cellular.samples.langton import LangtonAnt
-from cellular.samples.conwayGameOfLife import ConwayGameOfLife
+from cellular.samples.conway import ConwayGameOfLife
 
 
 if __name__ == '__main__':
@@ -74,7 +72,7 @@ if __name__ == '__main__':
     automate.initialize()
 
     for _ in range(0, 20):
-        automate.save_img(filepath="output/langton/langton.%.03d.png" % (automate.step))
+        automate.save_img(filepath="img/langton/langton.%.03d.png" % (automate.step))
         automate.evolves()
 
     ## Conway game of life
@@ -96,7 +94,7 @@ if __name__ == '__main__':
     automate.grid[16][11] = 0
 
     for _ in range(30):
-        automate.save_img(filepath="output/conway/conway.%.03d.png" % (automate.step))
+        automate.save_img(filepath="img/conway/conway.%.03d.png" % (automate.step))
         automate.evolves()
 ```
 
