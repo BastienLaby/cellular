@@ -6,16 +6,16 @@ if __name__ == '__main__':
 
     ## Langton's app
 
-    automate = LangtonAnt(100, 100)
+    automate = LangtonAnt(50, 50)
     automate.initialize()
 
-    for _ in range(0, 20):
+    for _ in range(0, 200):
         automate.save_img(filepath="img/langton/langton.%.03d.png" % (automate.step))
         automate.evolves()
 
-    ## Conway game of life
+    # Conway game of life
 
-    automate = ConwayGameOfLife(100, 100)
+    automate = ConwayGameOfLife(50, 50)
     automate.initialize()
 
     # create blinker
@@ -31,6 +31,6 @@ if __name__ == '__main__':
     automate.grid[11][11] = 0
     automate.grid[16][11] = 0
 
-    for _ in range(30):
+    for _ in range(200):
         automate.save_img(filepath="img/conway/conway.%.03d.png" % (automate.step))
         automate.evolves()
