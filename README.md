@@ -70,10 +70,10 @@ for _ in range(0, 200):
     automate.evolves()
 ```
 
-Then some ffmpeg : `ffmpeg -i img/langton/langton.%03d.png -vf scale=800:800 -sws_flags neighbor img/langton/langton.gif`
+Then some ffmpeg : `ffmpeg -i img.%03d.png -vf scale=300:300 -sws_flags neighbor output.gif`
 
-![alt text](https://github.com/BastienLaby/cellular/blob/master/langton.gif "Langton simulation")
+Langton simulation :
+<img src="https://github.com/BastienLaby/cellular/blob/master/langton.gif" width="300">
 
-Other exemple with Conway Game of Life implementation :
-
-![alt text](https://github.com/BastienLaby/cellular/blob/master/conway.gif "Conway Game Of Life simulation")
+Conway Game Of Life simulation :
+<img src="https://github.com/BastienLaby/cellular/blob/master/conway.gif" width="300">
