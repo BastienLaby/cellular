@@ -73,7 +73,9 @@ for _ in range(0, 200):
 Then some ffmpeg : `ffmpeg -i img.%03d.png -vf scale=300:300 -sws_flags neighbor output.gif`
 
 Langton simulation :
+
 <img src="https://github.com/BastienLaby/cellular/blob/master/langton.gif" width="300">
 
 Conway Game Of Life simulation :
+
 <img src="https://github.com/BastienLaby/cellular/blob/master/conway.gif" width="300">
