@@ -73,9 +73,9 @@ for _ in range(0, 200):
 Then some ffmpeg : `ffmpeg -i img/langton/langton.%03d.png -vf scale=800:800 -sws_flags neighbor img/langton/langton.gif`
 
 Inline-style:
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+![alt text](https://github.com/BastienLaby/cellular/blob/master/langton.gif "Langton simulation")
 
 Other exemple with Conway Game of Life implementation :
 
 Inline-style:
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+![alt text](https://github.com/BastienLaby/cellular/blob/master/conway.gif "Conway Game Of Life simulation")
