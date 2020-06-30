@@ -16,8 +16,9 @@ Each cellular automaton derives from **Automate** class and has at least an **ev
 ```python
 # -*- coding: utf-8 -*-
 
-from automates.langton import LangtonAnt
-from automates.conwayGameOfLife import ConwayGameOfLife
+from cellular.samples.langton import LangtonAnt
+from cellular.samples.conwayGameOfLife import ConwayGameOfLife
+
 
 if __name__ == '__main__':
 

@@ -2,7 +2,7 @@
 
 import copy
 
-from automates import automate
+from cellular.automate import Automate
 
 relativeNeighors = (
     (-1, -1),
@@ -15,12 +15,13 @@ relativeNeighors = (
     (1, 1),
 )
 
-class ConwayGameOfLife(automate.Automate):
+
+class ConwayGameOfLife(Automate):
     '''
     Automate wich reproduces the Conway's Game of Life (https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
     '''
-    def __init__(self, width, height, name='conway'):
-        automate.Automate.__init__(self, width=width, height=height, name=name)
+    def __init__(self, width, height):
+        Automate.__init__(self, width=width, height=height)
         self.ant = None
 
     def evolves(self):
