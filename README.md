@@ -1,17 +1,63 @@
 
 # cellularAutomaton
 
-Python API to create and display cellular automaton
+*cellular* is a Python API to create and display cellular automaton.
+It provide a class `Automate` that you can derivate to create custom automatons.
+The `Automate` class :
+* Provide a `grid` variable to store the data of the automate.
+* Provide an `evolves()` method to override to describe how the system evolves in step N+1.
 
-## Dependencies
+## Examples:
 
-- [PyPNG](https://github.com/drj11/pypng) : `py 3.X -m pip install PyPNG`
+```python
+import copy
 
-## Description
+from cellular.automate import Automate
 
-Each cellular automaton derives from **Automate** class and has at least an **evolves()** method which describes how the system evolves in step N+1.
 
-## Usage example :
+class Blinker(Automate):
+    """
+    Automate that blink.
+    """
+    cell_data_type = bool
+
+    def evolves(self):
+        """
+        Implement a blinker automate which
+        """
+        current_gen = copy.deepcopy(self.grid)
+        for i in range(self.width):
+            for j in range(self.height):
+                self.grid[i][j] = not current_gen[i][j]
+        self.step += 1
+
+
+blinker = Blinker(2, 2)
+blinker.initialize()
+
+blinker.grid[0][0] = False
+blinker.grid[0][1] = True
+blinker.grid[1][0] = True
+blinker.grid[1][1] = False
+
+for i in range(3):
+    blinker.save_img(filepath="img/blinker/blinker.%.03d.png" % (blinker.step))
+    blinker.evolves()
+```
+
+
+## Installation
+
+* Clone this repository : `git clone <repo_url>`
+* Create a virtualenv (I use Python 3.7 for this project) : `py -3.7 -m pip cellular`
+* Move into the folder : `cd cellular`
+* Activate the virtualenv : `.\Scripts\activate.bat` (windows) or `source bin/activate` (linux)
+* Install the requirements : `pip install -r requirements.txt`
+
+Done !
+
+
+## Advanced usage :
 
 ```python
 # -*- coding: utf-8 -*-
@@ -28,7 +74,7 @@ if __name__ == '__main__':
     automate.initialize()
 
     for _ in range(0, 20):
-        automate.saveImg(filepath="output/langton/langton.%.03d.png" % (automate.step))
+        automate.save_img(filepath="output/langton/langton.%.03d.png" % (automate.step))
         automate.evolves()
 
     ## Conway game of life
@@ -50,7 +96,7 @@ if __name__ == '__main__':
     automate.grid[16][11] = 0
 
     for _ in range(30):
-        automate.saveImg(filepath="output/conway/conway.%.03d.png" % (automate.step))
+        automate.save_img(filepath="output/conway/conway.%.03d.png" % (automate.step))
         automate.evolves()
 ```
 

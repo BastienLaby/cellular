@@ -8,3 +8,5 @@ pyvenv.cfg
 Lib
 Include
 Scripts
+
+img/
