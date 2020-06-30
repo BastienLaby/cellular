@@ -1,5 +1,5 @@
 
-# cellularAutomaton
+# cellular
 
 **cellular** is a Python API to create and display cellular automatons.
 It provide a class `Automate` that you can derivate to create custom automatons.
