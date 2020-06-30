@@ -1,4 +1,3 @@
-
 from cellular.samples.langton import LangtonAnt
 from cellular.samples.conway import ConwayGameOfLife
 
